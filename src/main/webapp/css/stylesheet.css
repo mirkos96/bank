@@ -1,0 +1,53 @@
+
+.html {
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+}
+.navbar-brand {
+ padding: 0px;
+}
+.navbar-brand>img {
+  height: 100%;
+ padding: 7px 15px;
+  width: auto;
+}
+body{
+   text-align: center;
+}
+
+div#container{
+   margin-left: auto;
+   margin-right: auto;
+   width: 20em;
+}
+
+body>img{
+	background-image: url(images/fonddecran.jpg);
+	background-size:  100% 100%;
+	
+}
+.btn{
+	taxt-align :right;
+}
+
+th{
+	text-align: center;
+}
+
+#redirectAccount{
+	
+}
+
+label{
+	display:block;
+}
+
+
+
+
+
+
+      
+      
+    

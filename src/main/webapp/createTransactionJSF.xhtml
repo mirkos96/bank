@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+<h:head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</h:head>
+<h:body>
+
+<h:form>
+		<h3>Nouvelle transaction pour #{account}</h3>
+			<h:inputHidden value="#{param['account']}" name="account"/>
+			<div>
+				<h:outputLabel for="amount">Montant*</h:outputLabel>
+				<h:inputText id="amount"  value="#{newTransaction.periodicTransaction.transactionValue}" required="true">
+					<f:ajax event="blur" execute="amountError"/>
+				</h:inputText>
+				<h:outputText id="amountError"/>
+			</div>
+			<div>
+				<h:outputLabel for="slct-target">Destinataire</h:outputLabel>
+					<h:selectOneListbox id="slct-target" value="#{newTransaction.periodicTransaction.targetTransaction}">
+						<f:selectItems value="#{newTransaction.targets}" var="t" itemValue="#{t}"/>	
+					</h:selectOneListbox>
+			</div>
+			<div>
+				<h:outputLabel for="libelle">Libellé*</h:outputLabel>
+				<h:inputText id="libelle" value="#{newTransaction.periodicTransaction.wording}" required="true"/>
+				<h:message id="libelleMessage" for="libelle" errorClass="erreur" />
+				<h:outputLabel for="description">Description</h:outputLabel>
+				<h:inputText id="description" value="#{newTransaction.periodicTransaction.description}" required="false"/>
+				<h:message id="descriptionMessage" for="description" errorClass="erreur" />
+				<h:outputLabel for="slct-category">Catégorie</h:outputLabel>
+				<h:selectOneListbox id="slct-category" value="#{newTransaction.periodicTransaction.category}">
+				    	<f:selectItems value="#{newTransaction.categories}" var="p" itemValue="#{p}"/>
+				</h:selectOneListbox>
+			</div>
+			<div>
+			<h:outputLabel for="date">Date</h:outputLabel>
+			<h:inputText type="date" id="date"/>
+			</div>
+			<div>
+				<h:outputLabel for="slct-type">Type</h:outputLabel>
+				<h:selectOneListbox id="slct-type" value="#{newTransaction.periodicTransaction.transactionType}">
+					<f:selectItems value="#{newTransaction.types}" var="p" itemValue="#{p}"/>
+				</h:selectOneListbox>
+			</div>
+			<h:commandButton></h:commandButton>
+		</h:form>
+
+</h:body>
+
+</html>
